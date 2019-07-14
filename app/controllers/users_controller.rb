@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     if logged_in?
       redirect '/posts'
     else
-      erb :index
+      erb :index, layout: :layout
     end
   end
 
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     if logged_in?
       redirect '/posts'
     end
-    erb :index
+    erb :index, layout: :layout
   end
 
   post '/login' do
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
 
   get '/users/:slug' do
     @user = User.find_by_slug(params[:slug])
-    erb :"users/show"
+    erb :"users/show", layout: :layout
   end
 
 end
