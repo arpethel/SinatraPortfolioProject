@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190714002239) do
+ActiveRecord::Schema.define(version: 20190714062900) do
 
-  create_table "images", force: :cascade do |t|
-    t.string  "image"
+  create_table "posts", force: :cascade do |t|
+    t.string  "caption"
     t.integer "user_id"
   end
 

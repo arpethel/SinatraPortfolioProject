@@ -1,5 +1,5 @@
-<h1>Your Uploads</h1>
+<h1>Your posts</h1>
 
-<% @user.images.each do |image| %>
-  <%= image.content %>
+<% @user.posts.each do |post| %>
+  <%= post.caption %>
 <% end %>

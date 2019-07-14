@@ -1,0 +1,10 @@
+<h1> Edit </h1>
+
+<form action="/posts/<%=@post.id%>" method="POST">
+  <label>Edit post</label><br>
+  <input type="hidden" name="_method" value="patch">
+  <input type="text" name="caption" value="<%=@post.caption%>"><br>
+  <input type="submit" value="submit">
+</form>
+
+<a href="/posts">Cancel</a>

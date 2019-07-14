@@ -1,0 +1,13 @@
+<h1>post</h1>
+
+<%= @post.caption %>
+
+<form action="/posts/<%=@post.id%>/delete" method="POST"><br><br>
+  <label>Delete This post</label>
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete post">
+</form>
+
+<a href="/posts/<%=@post.id%>/edit">Edit post</a><br>
+<a href="/posts/new">Create New post Here</a><br>
+<a href="/posts">Home</a>
