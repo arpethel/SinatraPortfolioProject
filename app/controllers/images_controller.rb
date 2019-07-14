@@ -16,13 +16,13 @@ class ImagesController < ApplicationController
     post '/save_image' do
         if logged_in?
         if params[:title] !=""
-            @image = Image.new(title: params[:title][:file][:filename])
-            @image.user = current_user
+            @image = Image.new(title: params[:title])
             @image.save
 
+            @filename = params[:file][:filename]
             file = params[:file][:tempfile]
 
-            File.open("./public/#{@image}", 'wb') do |i|
+            File.open("./public/#{@filename}", 'wb') do |i|
             i.write(file.read)
             end
 
