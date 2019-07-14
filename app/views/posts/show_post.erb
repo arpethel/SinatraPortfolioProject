@@ -1,5 +1,10 @@
 <h1>post</h1>
 
+<%= @post.name %>
+<%= @post.ingredients %>
+<%= @post.directions %>
+<%= @post.cooktime %>
+<%= @post.chef %>
 <%= @post.caption %>
 
 <form action="/posts/<%=@post.id%>/delete" method="POST"><br><br>

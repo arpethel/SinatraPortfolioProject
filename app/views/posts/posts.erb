@@ -4,6 +4,11 @@
 <h3><a href="/posts/new">Create New post Here</a></h3>
 
 <% @posts.each do |post| %>
+  <%= post.name %>
+  <%= post.ingredients %>
+  <%= post.directions %>
+  <%= post.cooktime %>
+  <%= post.chef %>
   <%= post.caption %>
   <%= post.id %>
   <a href="/posts/<%= post.id %>/edit">edit</a>
