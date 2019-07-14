@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
   has_many :posts
-  has_many :images, through: :posts
 
   def slug
     username.downcase.gsub(" ", "-")
