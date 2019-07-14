@@ -19,8 +19,8 @@ class PostsController < ApplicationController
 
   post '/posts' do
     if logged_in?
-      if params[:caption] !=""
-        @post = Post.new(caption: params[:caption])
+      if params[:name] !="" && params[:ingredients] !="" && params[:directions] !="" && params[:cooktime] !="" && params[:chef] !="" && params[:caption] !=""
+        @post = Post.new(name: params[:name], ingredients: params[:ingredients], directions: params[:directions], cooktime: params[:cooktime], chef: params[:chef], caption: params[:caption])
         @post.user = current_user
         @post.save
 
@@ -58,8 +58,8 @@ class PostsController < ApplicationController
   patch '/posts/:id' do
     if logged_in?
       @post = Post.find_by_id(params[:id])
-      if params[:caption] != ""
-        @post.update(caption: params[:caption])
+      if params[:name] !="" && params[:ingredients] !="" && params[:directions] !="" && params[:cooktime] !="" && params[:chef] !="" && params[:caption] !=""
+        @post.update(name: params[:name], ingredients: params[:ingredients], directions: params[:directions], cooktime: params[:cooktime], chef: params[:chef], caption: params[:caption])
         erb :"posts/show_post"
       else
         redirect "/posts/#{@post.id}/edit"
