@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   get '/signup' do
     if logged_in?
-      redirect '/tweets'
+      redirect '/images'
     else
       erb :'users/signup'
     end
@@ -16,13 +16,13 @@ class UsersController < ApplicationController
     else
       @user.save
       session[:user_id] = @user.id
-      redirect '/tweets'
+      redirect '/images'
     end
   end
 
   get '/login' do
     if logged_in?
-      redirect '/tweets'
+      redirect '/images'
     end
     erb :'users/login'
   end
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect '/tweets'
+      redirect '/images'
     end
     redirect '/login'
   end
