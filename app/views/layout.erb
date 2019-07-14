@@ -6,20 +6,18 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
   </head>
   <body>
+    <nav class="navbar navbar-light bg-light">
+      
+    </nav>
 
-    <div class="container text-center">
-      <nav class="navbar navbar-expand-md navbar-light bg-dark sticky-top">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#" src=""></a>
-        </div>
-      </nav>
-
-      <h1>Recipe Tracker</h1>
-      <h4>keeping your recipes, <br> so you don't have to</h4>
-
-      <%= yield %>
+    <div class="container text-center" style="padding-right: 150px">
+      <img src="/images/logo.svg" width="300" height="300" class="d-inline-block align-top" alt="">
+      <h4>keeping your recipes, <br> so you don't have to</h4>           
     </div>
 
+    <div class="container">
+    <%= yield %>
+    </div>
 
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

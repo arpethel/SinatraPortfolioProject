@@ -4,7 +4,8 @@
     <p>Welcome, <%= current_user.username %></p>
 <% else %>
 
-    <div class="m-auto">
+    <div class="container" style="padding-left: 250px">
+    
         <div class="card text-center" style="width: 18rem;">
             <div class="card-body">
                 <form class="form-signin" action="/signup" method="post">
@@ -26,6 +27,7 @@
                 </form>
             </div>
         </div>
+
     </div>
     
 <% end %>
