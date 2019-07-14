@@ -5,5 +5,10 @@
 <p>Welcome, <%= current_user.username %></p>
 
 <% @user.posts.each do |post| %>
+  <%= post.name %>
+  <%= post.ingredients %>
+  <%= post.directions %>
+  <%= post.cooktime %>
+  <%= post.chef %>
   <%= post.caption %>
 <% end %>
