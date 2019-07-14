@@ -3,11 +3,23 @@ class PostsController < ApplicationController
   get '/posts' do
     if logged_in?
       @posts = Post.all
-      erb :'posts/all_posts'
+      erb :'posts/posts'
     else
       redirect '/login'
     end
   end
+
+  post '/save_image' do
+    @filename = params[:file][:filename]
+    file = params[:file][:tempfile]
+
+    File.open("./public/#{@filename}", 'wb') do |f|
+      f.write(file.read)
+    end
+    
+    erb :"posts/show_image"
+  end
+
 
   get '/posts/new' do
     if logged_in?
@@ -45,11 +57,11 @@ class PostsController < ApplicationController
   get '/posts/:id/edit' do
     if logged_in?
       @post = Post.find_by_id(params[:id])
-      if @post && @post.user == current_user
+      # if @post && @post.user == current_user
         erb :"/posts/edit_post"
-      else
-        redirect '/posts'
-      end
+      # else
+      #   redirect '/posts'
+      # end
     else
       redirect '/login'
     end
@@ -72,12 +84,12 @@ class PostsController < ApplicationController
   delete '/posts/:id/delete' do
     if logged_in?
       @post = Post.find_by_id(params[:id])
-      if @post.user == current_user
+      # if @post.user == current_user
         @post.destroy
         redirect '/posts'
-      else
-        redirect '/posts'
-      end
+      # else
+      #   redirect '/posts'
+      # end
     else
       redirect '/login'
     end

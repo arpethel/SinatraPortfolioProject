@@ -5,6 +5,7 @@
 
 <% @posts.each do |post| %>
   <%= post.caption %>
-
+  <%= post.id %>
+  <a href="/posts/<%= post.id %>/edit">edit</a>
   <br><br>
 <% end %>

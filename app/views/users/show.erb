@@ -1,5 +1,9 @@
 <h1>Your posts</h1>
 
+<a href="/posts/new">Create Post</a>
+<a href="/logout">Logout</a>
+<p>Welcome, <%= current_user.username %></p>
+
 <% @user.posts.each do |post| %>
   <%= post.caption %>
 <% end %>

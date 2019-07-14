@@ -1,28 +1,28 @@
 <% if logged_in? %>
-
-    <a href="/posts/new">Create Post</a>
-    <a href="/logout">Logout</a>
-    <p>Welcome, <%= current_user.username %>
+    <%= redirect '/users/:slug'%>
 <% else %>
 
-    <div class="row-fluid text-center">
-        <div class="span4">
-            <form class="form-signin" action="/signup" method="post">
-                <h2 class="form-signin-heading">Sign up</h2>
-                <input type="text" class="input-block-level" name="username" placeholder="Username">
-                <input type="email" class="input-block-level" name="email" placeholder="Email">
-                <input type="password" class="input-block-level" name="password" placeholder="Password">
-                <button class="btn btn-md btn-primary" type="submit" value="Sign Up">Sign Up</button>
-            </form>
+    <div class="m-auto">
+        <div class="card text-center" style="width: 18rem;">
+            <div class="card-body">
+                <form class="form-signin" action="/signup" method="post">
+                    <h2 class="card-title">Sign up</h2>
+                    <input type="text" class="card-text" name="username" placeholder="Username">
+                    <input type="email" class="card-text" name="email" placeholder="Email">
+                    <input type="password" class="card-text" name="password" placeholder="Password"><br>
+                    <button class="btn btn-primary" type="submit" value="Sign Up">Sign Up</button>
+                </form>
+            </div>
         </div>
-
-        <div class="span4">
-            <form class="form-signin" action="/login" method="post">
-                <h2 class="form-signin-heading">Or Login</h2>
-                <input type="text" class="input-block-level" name="username" placeholder="Username">
-                <input type="password" class="input-block-level" name="password" placeholder="Password">
-                <button class="btn btn-md btn-primary" type="submit" value="Login">Login</button>
-            </form>
+        <div class="card text-center" style="width: 18rem;">
+            <div class="card-body">
+                <form class="form-signin" action="/login" method="post">
+                    <h2 class="card-title">Or Login</h2>
+                    <input type="text" class="card-text" name="username" placeholder="Username">
+                    <input type="password" class="card-text" name="password" placeholder="Password"><br>
+                    <button class="btn btn-primary" type="submit" value="Login">Login</button>
+                </form>
+            </div>
         </div>
     </div>
     
