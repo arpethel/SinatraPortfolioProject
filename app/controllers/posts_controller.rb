@@ -9,18 +9,6 @@ class PostsController < ApplicationController
     end
   end
 
-  post '/save_image' do
-    @filename = params[:file][:filename]
-    file = params[:file][:tempfile]
-
-    File.open("./public/#{@filename}", 'wb') do |f|
-      f.write(file.read)
-    end
-    
-    erb :"posts/show_image"
-  end
-
-
   get '/posts/new' do
     if logged_in?
       erb :"posts/new"

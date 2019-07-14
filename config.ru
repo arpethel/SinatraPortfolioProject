@@ -6,6 +6,7 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride
+use ImagesController
 use PostsController
 use UsersController
 run ApplicationController
