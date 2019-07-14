@@ -1,16 +1,21 @@
+
+<div class="container" style="margin-left: 230px">
 <h1>Welcome, <%= current_user.username %></h1>
-<a href="/logout">Logout</a>
+
 
 <h3><a href="/posts/new">Create New post Here</a></h3>
 
 <% @posts.each do |post| %>
-  <%= post.name %>
-  <%= post.ingredients %>
-  <%= post.directions %>
-  <%= post.cooktime %>
-  <%= post.chef %>
-  <%= post.caption %>
-  <%= post.id %>
-  <a href="/posts/<%= post.id %>/edit">edit</a>
+<ul style="list-style-type:none;">
+  <li><strong>Name:</strong>  <%= post.name %><br></li>
+  <li><strong>Ingredients:</strong>  <%= post.ingredients %><br></li>
+  <li><strong>Directions:</strong>  <%= post.directions %><br></li>
+  <li><strong>Cook Time:</strong>  <%= post.cooktime %><br></li>
+  <li><strong>Chef:</strong>  <%= post.chef %><br></li>
+  <li><em><%= post.caption %></em><br></li>
+</ul>
+  
+  <p><a href="/logout">Logout</a>  |  <a href="/posts/<%= post.id %>/edit">edit</a></p>
   <br><br>
 <% end %>
+</div>

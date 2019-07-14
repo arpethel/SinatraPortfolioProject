@@ -1,21 +1,29 @@
-<h1> Edit </h1>
+
+<div class="container" style="margin-left: 230px">
+<h1>Edit your recipe here, <%= current_user.username %></h1>
 
 <form action="/posts/<%=@post.id%>" method="POST">
-  <label>Edit post</label><br>
   <input type="hidden" name="_method" value="patch">
-  <input type="text" name="name" value="<%=@post.name%>"><br>
-  <input type="text" name="ingredients" value="<%=@post.ingredients%>"><br>
-  <input type="text" name="directions" value="<%=@post.directions%>"><br>
-  <input type="text" name="cooktime" value="<%=@post.cooktime%>"><br>
-  <input type="text" name="chef" value="<%=@post.chef%>"><br>
-  <input type="text" name="caption" value="<%=@post.caption%>"><br>
+  <label>Name: </label>
+  <input type="text" name="name" value="<%=@post.name%>"><br><br>
+  <label>Ingredients: </label>
+  <input type="text" name="ingredients" value="<%=@post.ingredients%>"><br><br>
+  <label>Directions: </label>
+  <input type="text" name="directions" value="<%=@post.directions%>"><br><br>
+  <label>Cook Time: </label>
+  <input type="text" name="cooktime" value="<%=@post.cooktime%>"><br><br>
+  <label>Chef: </label>
+  <input type="text" name="chef" value="<%=@post.chef%>"><br><br>
+  <label>Enter what you love most about this recipe: </label>
+  <input type="text" name="caption" value="<%=@post.caption%>"><br><br>
   <input type="submit" value="submit">
 </form>
 
 <form action="/posts/<%=@post.id%>/delete" method="POST"><br><br>
-  <label>Delete This post</label>
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete post">
 </form>
 
-<a href="/posts">Cancel</a>
+  <p><a href="/posts">Cancel</a>  |  <a href="/logout">Logout</a></p>
+  <br><br>
+</div>
