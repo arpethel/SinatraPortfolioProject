@@ -1,9 +1,9 @@
-<html>
-    <head>
-        <title>Show Image</title>
-    </head>
-    <body>
-        <h1>See Image</h1>
-        <img src="<%= @filename %>" />
-    </body>
-</html>
+
+<h1>See Image</h1>
+<img src="<%= @filename %>" />
+
+<form action='/posts' method="POST">
+  caption:
+  <input type="text" name="caption"><br>
+  <input type="submit" name="submit" id="submit">
+</form>
