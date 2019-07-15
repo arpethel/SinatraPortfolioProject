@@ -1,27 +1,28 @@
 
+
 <h1>Edit your recipe here, <%= current_user.username %></h1>
 
 <form action="/posts/<%=@post.id%>" method="POST">
-  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="_method" value="patch" />
   <label>Name: </label>
-  <input type="text" name="name" value="<%=@post.name%>"><br><br>
+  <input type="text" name="name" value="<%=@post.name%>" />
   <label>Ingredients: </label>
-  <input type="text" name="ingredients" value="<%=@post.ingredients%>"><br><br>
+  <input type="text" name="ingredients" value="<%=@post.ingredients%>" />
   <label>Directions: </label>
-  <input type="text" name="directions" value="<%=@post.directions%>"><br><br>
+  <input type="text" name="directions" value="<%=@post.directions%>" />
   <label>Cook Time: </label>
-  <input type="text" name="cooktime" value="<%=@post.cooktime%>"><br><br>
+  <input type="text" name="cooktime" value="<%=@post.cooktime%>" />
   <label>Chef: </label>
-  <input type="text" name="chef" value="<%=@post.chef%>"><br><br>
+  <input type="text" name="chef" value="<%=@post.chef%>" />
   <label>Enter what you love most about this recipe: </label>
-  <input type="text" name="caption" value="<%=@post.caption%>"><br><br>
-  <input type="submit" value="submit">
+  <input type="text" name="caption" value="<%=@post.caption%>" />
+  <input type="submit" value="submit" />
 </form>
 
-<form action="/posts/<%=@post.id%>/delete" method="POST"><br><br>
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete post">
+<form action="/posts/<%=@post.id%>/delete" method="POST">
+  <input type="hidden" name="_method" value="delete" />
+  <input type="submit" value="Delete post" />
 </form>
 
-  <p><a href="/posts">Cancel</a>  |  <a href="/logout">Logout</a></p>
-  <br><br>
+  <a href="/posts">Cancel</a>  |  <a href="/logout">Logout</a>
+  

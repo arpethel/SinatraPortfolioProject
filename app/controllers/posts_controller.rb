@@ -62,7 +62,7 @@ class PostsController < ApplicationController
         @post.update(name: params[:name], ingredients: params[:ingredients], directions: params[:directions], cooktime: params[:cooktime], chef: params[:chef], caption: params[:caption])
         erb :'posts/show_post', layout: :layout
       else
-        redirect "/posts/#{@post.id}/edit"
+        redirect "/posts/#{@post.id}/edit", layout: :layout
       end
     else
       redirect '/login'

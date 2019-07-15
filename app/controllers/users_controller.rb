@@ -51,4 +51,13 @@ class UsersController < ApplicationController
     erb :'users/show', layout: :layout
   end
 
+  get '/show' do
+    if logged_in?
+      @user = User.find_by(:username => params[:username])
+      erb :'users/show', layout: :layout
+    else
+      redirect to '/login'
+    end
+  end
+
 end
