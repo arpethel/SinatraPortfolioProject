@@ -4,30 +4,19 @@
     <p>Welcome, <%= current_user.username %></p>
 <% else %>
 
-    <div class="container" style="padding-left: 250px">
-    
-        <div class="card text-center" style="width: 18rem;">
-            <div class="card-body">
-                <form class="form-signin" action="/signup" method="post">
-                    <h2 class="card-title">Sign up</h2>
-                    <input type="text" class="card-text" name="username" placeholder="Username">
-                    <input type="email" class="card-text" name="email" placeholder="Email">
-                    <input type="password" class="card-text" name="password" placeholder="Password"><br>
-                    <button class="btn btn-primary" type="submit" value="Sign Up">Sign Up</button>
-                </form>
-            </div>
-        </div>
-        <div class="card text-center" style="width: 18rem;">
-            <div class="card-body">
-                <form class="form-signin" action="/login" method="post">
-                    <h2 class="card-title">Or Login</h2>
-                    <input type="text" class="card-text" name="username" placeholder="Username">
-                    <input type="password" class="card-text" name="password" placeholder="Password"><br>
-                    <button class="btn btn-primary" type="submit" value="Login">Login</button>
-                </form>
-            </div>
-        </div>
+<form action="/signup" method="post">
+    <h2>Sign up</h2>
+    <input type="text" name="username" placeholder="Username">
+    <input type="email" name="email" placeholder="Email">
+    <input type="password" name="password" placeholder="Password">
+    <button type="submit" value="Sign Up">Sign Up</button>
+</form>
 
-    </div>
+<form class="form-signin" action="/login" method="post">
+    <h2>Or Login</h2>
+    <input type="text" name="username" placeholder="Username">
+    <input type="password" name="password" placeholder="Password">
+    <button type="submit" value="Login">Login</button>
+</form>
     
 <% end %>

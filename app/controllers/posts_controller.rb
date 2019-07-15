@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 
   get '/posts/new' do
     if logged_in?
-      erb :"posts/new", layout: :layout
+      erb :'posts/new', layout: :layout
     else
       redirect '/login'
     end
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
   get '/posts/:id' do
     if logged_in?
       @post = Post.find_by_id(params[:id])
-      erb :"posts/show_post", layout: :layout
+      erb :'posts/show_post', layout: :layout
     else
       redirect to '/login'
     end
@@ -46,7 +46,7 @@ class PostsController < ApplicationController
     if logged_in?
       @post = Post.find_by_id(params[:id])
       # if @post && @post.user == current_user
-        erb :"/posts/edit_post", layout: :layout
+        erb :'/posts/edit_post', layout: :layout
       # else
       #   redirect '/posts'
       # end
@@ -60,7 +60,7 @@ class PostsController < ApplicationController
       @post = Post.find_by_id(params[:id])
       if params[:name] !="" && params[:ingredients] !="" && params[:directions] !="" && params[:cooktime] !="" && params[:chef] !="" && params[:caption] !=""
         @post.update(name: params[:name], ingredients: params[:ingredients], directions: params[:directions], cooktime: params[:cooktime], chef: params[:chef], caption: params[:caption])
-        erb :"posts/show_post", layout: :layout
+        erb :'posts/show_post', layout: :layout
       else
         redirect "/posts/#{@post.id}/edit"
       end
