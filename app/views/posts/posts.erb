@@ -1,19 +1,25 @@
 
-<%= current_user.username %>
+<% if logged_in?%>
+<h5><%= current_user.username %>'s Recipes</h5>
 
 <a href="/posts/new">Create New post Here</a>
 
-<% @posts.each do |post| %>
+  <% @posts.each do |post| %>
 
-  Name:  <%= post.name %>
-  Ingredients:  <%= post.ingredients %>
-  Directions:  <%= post.directions %>
-  Cook Time:  <%= post.cooktime %>
-  Chef:  <%= post.chef %>
-  Caption:  <%= post.caption %>
+    Name:  <%= post.name %>
+    Ingredients:  <%= post.ingredients %>
+    Directions:  <%= post.directions %>
+    Cook Time:  <%= post.cooktime %>
+    Chef:  <%= post.chef %>
+    Caption:  <%= post.caption %>
 
-  
-  <a href="/logout">Logout</a> 
-  <a href="/posts/<%= post.id %>/edit">edit</a>
+    
+    <a href="/logout">Logout</a> 
+    <a href="/posts/<%= post.id %>/edit">edit</a>
+
+  <% end %>
+<% else %>
+
+<h5>You're not logged in to view any recipes. Please create an account <a href="/">here</a> to create and view recipes.</h5>
 
 <% end %>

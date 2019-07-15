@@ -38,8 +38,9 @@ class PostsController < ApplicationController
       @post = Post.find_by_id(params[:id])
       erb :'posts/show_post', layout: :layout
     else
-      redirect to '/login'
+      erb :'posts/show_1_post', layout: :layout
     end
+    redirect to '/login'
   end
 
   get '/posts/:id/edit' do
@@ -62,7 +63,7 @@ class PostsController < ApplicationController
         @post.update(name: params[:name], ingredients: params[:ingredients], directions: params[:directions], cooktime: params[:cooktime], chef: params[:chef], caption: params[:caption])
         erb :'posts/show_post', layout: :layout
       else
-        redirect "/posts/#{@post.id}/edit", layout: :layout
+        redirect "/posts/#{@post.id}/edit"
       end
     else
       redirect '/login'
