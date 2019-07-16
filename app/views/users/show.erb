@@ -1,9 +1,9 @@
 
 
 
-<% if logged_in?%>
+<% if logged_in? && current_user.posts.count >= 1%>
 
-<h4><%= current_user.username %>'s Recipes</h4>
+<h1 class="display-4"><%= current_user.username %>'s Recipes</h4>
   <% current_user.posts.each do |post| %>
 
   <div class="row justify-content-center" style="margin-top: 2em">
@@ -26,8 +26,9 @@
   <% end %>
 
 <% else %>
-
-<h5>You're not logged in to view any recipes. Please create an account <a href="/">here</a> to create and view recipes.</h5>
-
+<div  style="margin-top: 100px">
+<h1 class="display-4 my-5">There are no recipes to show you right now, <%= current_user.username %>. Please create one here!</h4>
+<a href="/posts/new" class="btn btn-primary btn-lg btn-block">Create Recipe</a>
+</div>
 <% end %>
 

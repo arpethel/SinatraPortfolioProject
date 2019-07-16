@@ -36,7 +36,7 @@ class PostsController < ApplicationController
   get '/posts/:id' do
     if logged_in?
       @post = Post.find_by_id(params[:id])
-      erb :'posts/show_post', layout: :layout
+      erb :'users/show', layout: :layout
     else
       erb :'posts/show_1_post', layout: :layout
     end
