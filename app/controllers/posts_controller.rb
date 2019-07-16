@@ -5,7 +5,7 @@ class PostsController < ApplicationController
       @posts = Post.all
       erb :'posts/posts', layout: :layout
     else
-      redirect '/login'
+      redirect '/'
     end
   end
 
@@ -13,7 +13,7 @@ class PostsController < ApplicationController
     if logged_in?
       erb :'posts/new', layout: :layout
     else
-      redirect '/login'
+      redirect '/'
     end
   end
 
