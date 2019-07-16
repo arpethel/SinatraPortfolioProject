@@ -1,9 +1,12 @@
 <!doctype html>
 <html>
   <head>
-    <title>Recipe Tracker</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Snack Overload - Where We All Learn, Share, & Build Recipes</title>
+
+    <link rel="icon" href="/images/favicon.png" type="image/gif" sizes="32x32">
+
     <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
@@ -16,7 +19,7 @@
   <% if logged_in?%>
   <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light justify">
     <a class="navbar-brand " href="/posts">
-      <img src="/images/logo6.svg" height="50px" alt="Recipe Tracker">
+      <img src="/images/logo.svg" height="50px" alt="Recipe Tracker">
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +45,7 @@
   <% else %>
 
   <nav class="navbar justify-content-center" style="margin-top: 75px">
-    <img src="/images/logo6.svg" height="100%" alt="Recipe Tracker">
+    <img src="/images/logo.svg" height="100%" alt="Recipe Tracker">
   </nav>
 <%end%>
 
