@@ -46,11 +46,11 @@ class PostsController < ApplicationController
   get '/posts/:id/edit' do
     if logged_in?
       @post = Post.find_by_id(params[:id])
-      # if @post && @post.user == current_user
+      if @post && @post.user == current_user
         erb :'/posts/edit_post', layout: :layout
-      # else
-      #   redirect '/posts'
-      # end
+      else
+        redirect '/posts'
+      end
     else
       redirect '/login'
     end
@@ -73,12 +73,12 @@ class PostsController < ApplicationController
   delete '/posts/:id/delete' do
     if logged_in?
       @post = Post.find_by_id(params[:id])
-      # if @post.user == current_user
+      if @post.user == current_user
         @post.destroy
         redirect '/posts'
-      # else
-      #   redirect '/posts'
-      # end
+      else
+        redirect '/posts'
+      end
     else
       redirect '/login'
     end

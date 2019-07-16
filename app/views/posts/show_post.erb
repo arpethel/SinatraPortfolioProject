@@ -1,17 +1,27 @@
-<h1>post</h1>
 
-<%= @post.name %>
-<%= @post.ingredients %>
-<%= @post.directions %>
-<%= @post.cooktime %>
-<%= @post.chef %>
-<%= @post.caption %>
+<% if logged_in?%>
 
-<form action="/posts/<%=@post.id%>/delete" method="POST"><br><br>
-  <label>Delete This post</label>
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete post">
-</form>
+  <div class="row justify-content-center" style="margin-top: 2em">
+    <div class="card" style="width: 30rem;">
+      <%# <img src="..." class="card-img-top" alt="..."> %>
+      <div class="card-body text-left">
+        <h5 class="card-title"><%= @post.name %></h5>
+        <p class="card-text">Ingredients</p>
+        <p class="card-text"><%= @post.ingredients %></p>
+        <p class="card-text">Directions</p>
+        <p class="card-text"><%= @post.directions %></p>
+        <p class="card-text">Cook Time</p>
+        <p class="card-text">Cook Time:  <%= @post.cooktime %></p>
+        <p class="card-text">Chef:  <%= @post.chef %></p>
+        <p class="card-text"><em><%= @post.caption %></em></p>
+        <a href="/posts/<%= @post.id %>/edit" class="btn btn-danger">Edit</a>
+        <a href="/posts" class="btn btn-success">Done</a>
+      </div>
+    </div>
+  </div>
+  
+<% else %>
 
-<a href="/posts/<%=@post.id%>/edit">Edit post</a><br>
-<a href="/posts">Home</a>
+<h5>You're not logged in to view any recipes. Please create an account <a href="/">here</a> to create and view recipes.</h5>
+
+<% end %>

@@ -1,14 +1,33 @@
-<h1>Your posts</h1>
 
-<a href="/posts/new">Create Post</a>
-<a href="/logout">Logout</a>
-<p>Welcome, <%= current_user.username %></p>
 
-<% current_user.posts.each do |post| %>
-  <%= post.name %>
-  <%= post.ingredients %>
-  <%= post.directions %>
-  <%= post.cooktime %>
-  <%= post.chef %>
-  <%= post.caption %>
+
+<% if logged_in?%>
+
+<h4><%= current_user.username %>'s Recipes</h4>
+  <% current_user.posts.each do |post| %>
+
+  <div class="row justify-content-center" style="margin-top: 2em">
+    <div class="card" style="width: 30rem;">
+      <%# <img src="..." class="card-img-top" alt="..."> %>
+      <div class="card-body text-left">
+        <h5 class="card-title">Card title</h5>
+          
+        <p class="card-text">Name:  <%= post.name %></p>
+        <p class="card-text">Ingredients:  <%= post.ingredients %></p>
+        <p class="card-text">Directions:  <%= post.directions %></p>
+        <p class="card-text">Cook Time:  <%= post.cooktime %></p>
+        <p class="card-text">Chef:  <%= post.chef %></p>
+        <p class="card-text"><em><%= post.caption %></em></p>
+        <a href="/posts/<%= post.id %>/edit" class="btn btn-warning">Edit</a>
+      </div>
+    </div>
+  </div>
+  
+  <% end %>
+
+<% else %>
+
+<h5>You're not logged in to view any recipes. Please create an account <a href="/">here</a> to create and view recipes.</h5>
+
 <% end %>
+
