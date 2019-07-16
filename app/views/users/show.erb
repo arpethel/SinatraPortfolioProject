@@ -6,6 +6,7 @@
       <th scope="col">#</th>
       <th scope="col">username</th>
       <th scope="col">email</th>
+      <th scope="col">posts</th>
       <th scope="col">options</th>
     </tr>
   </thead>
@@ -15,6 +16,7 @@
       <th scope="row"><%= i + 1 %></th>
       <td><%= user.username %></td>
       <td><%= user.email %></td>
+      <td><%= user.posts.count%></td>
       <td><a class="btn btn-danger btn-sm" role="button">Delete</a></td>
     </tr>
     <% end %>
