@@ -29,7 +29,7 @@ class PostsController < ApplicationController
         redirect '/posts/new'
       end
     else
-      redirect '/login'
+      redirect '/'
     end
   end
 
@@ -38,9 +38,9 @@ class PostsController < ApplicationController
       @post = Post.find_by_id(params[:id])
       erb :'users/show', layout: :layout
     else
-      erb :'posts/show_1_post', layout: :layout
+      redirect to '/posts'
     end
-    redirect to '/login'
+    redirect to '/'
   end
 
   get '/posts/:id/edit' do
@@ -52,7 +52,7 @@ class PostsController < ApplicationController
         redirect '/posts'
       end
     else
-      redirect '/login'
+      redirect '/'
     end
   end
 
@@ -66,7 +66,7 @@ class PostsController < ApplicationController
         redirect "/posts/#{@post.id}/edit"
       end
     else
-      redirect '/login'
+      redirect '/'
     end
   end
 
@@ -75,12 +75,12 @@ class PostsController < ApplicationController
       @post = Post.find_by_id(params[:id])
       if @post.user == current_user
         @post.destroy
-        redirect '/posts'
+        redirect '/users/:slug'
       else
-        redirect '/posts'
+        redirect '/'
       end
     else
-      redirect '/login'
+      redirect '/'
     end
   end
 
